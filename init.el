@@ -44,7 +44,8 @@ t
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["black" "red3" "ForestGreen" "yellow3" "blue" "magenta3" "DeepSkyBlue" "gray50"])
- '(custom-enabled-themes (quote (light-blue))))
+ '(custom-enabled-themes (quote (light-blue)))
+ '(ecb-options-version "2.40"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -55,3 +56,29 @@ t
 (require 'auto-complete-config)
 (global-auto-complete-mode t)
 
+(setq inhibit-startup-message t)
+
+;;Set ECB
+;;(add-to-list 'load-path (expand-file-name
+;;      "~/.emacs.d/elpa/ecb-20140215.114/"))
+;;(require 'ecb)
+;;(require 'ecb-autoloads)
+;;(setq ecb-layout-name "layout-name")
+;;(setq ecb-show-sources-in-directories-buffer 'always)
+;;(setq ecb-compile-window-height 12)
+(add-to-list 'semantic-default-submodes 'global-semantic-decoration-mode)
+(add-to-list 'semantic-default-submodes 'global-semantic-idle-local-symbol-highlight-mode)
+(add-to-list 'semantic-default-submodes 'global-semantic-idle-scheduler-mode)
+(add-to-list 'semantic-default-submodes 'global-semantic-idle-completions-mode)
+(require 'sr-speedbar)
+(add-to-list 'load-path "~/.emacs.d/elpa/")
+
+ (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
+    (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
+    (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
+    (add-hook 'ielm-mode-hook             #'enable-paredit-mode)
+    (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
+    (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
+(add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+(add-hook 'racket-mode-hook           #'enable-paredit-mode)
+(add-hook 'clojure-mode-hook           #'enable-paredit-mode)
