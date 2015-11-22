@@ -44,7 +44,7 @@ t
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["black" "red3" "ForestGreen" "yellow3" "blue" "magenta3" "DeepSkyBlue" "gray50"])
- '(custom-enabled-themes (quote (light-blue)))
+ '(custom-enabled-themes (quote (tango)))
  '(ecb-options-version "2.40"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -89,3 +89,7 @@ t
 (add-to-list 'auto-mode-alist '("\\.\\(sml\\|sig\\)\\'" . sml-mode))
 (define-key key-translation-map [(f5)] [(control c) (control l)])
 (global-set-key [f8] 'neotree-toggle)
+;;haskell-mode
+(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
